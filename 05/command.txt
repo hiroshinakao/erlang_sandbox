@@ -1,0 +1,72 @@
+c(db).
+f(Db1).
+f(Db2).
+f(Db3).
+f(Db4).
+f(Db5).
+f(Db6).
+Db1 = db:new().
+Db2 = db:write(a, 1, Db1).
+Db3 = db:write(b, 2, Db2).
+Db4 = db:write(c, 3, Db3).
+Db5 = db:delete(b, Db4).
+db:delete(b, Db5).
+db:read(a, Db5).
+db:read(d, Db5).
+Db6 = db:write(d, 1, Db5).
+db:match(1, Db6).
+db:match(10, Db6).
+
+c(my_db).
+my_db:start().
+my_db:write(a,1).
+my_db:write(b,2).
+my_db:write(c,3).
+my_db:delete(b).
+my_db:read(a).
+my_db:read(d).
+my_db:write(d, 1).
+my_db:match(1).
+my_db:match(10).
+my_db:stop().
+
+c(frequency).
+frequency:start().
+frequency:allocate().
+frequency:allocate().
+frequency:deallocate(10).
+frequency:deallocate(12).
+frequency:stop().
+
+
+c(event_manager).
+c(log_handler).
+c(io_handler).
+
+event_manager:start(alarm, [{log_handler, "AlarmLog"}]).
+event_manager:send_event(alarm, {raise_alarm, 10, cabinet_open}).
+event_manager:add_handler(alarm, io_handler, 1).
+event_manager:send_event(alarm, {clear_alarm, 10, cabinet_open}).
+event_manager:send_event(alarm, {event, 156, link_up}).
+event_manager:get_data(alarm, io_handler).
+event_manager:stop(alarm).
+
+c(event_manager).
+c(io_handler).
+event_manager:start(alarm, [{log_handler, "AlarmLog"}]).
+event_manager:send_event(alarm, {raise_alarm, 10, cabinet_open}).
+event_manager:swap_handlers(alarm, log_handler, io_handler).
+event_manager:send_event(alarm, {clear_alarm, 10, cabinet_open}).
+event_manager:send_event(alarm, {clear_alarm, 10, cabinet_open}).
+event_manager:get_data(alarm, io_handler).
+event_manager:stop(alarm).
+
+c(stats_handler).
+event_manager:start(alarm, [{stats_handler, []}]).
+event_manager:send_event(alarm, {raise_alarm, 10, cabinet_open}).
+event_manager:send_event(alarm, {clear_alarm, 11, cabinet_open}).
+event_manager:send_event(alarm, {clear_alarm, 10, cabinet_open}).
+event_manager:send_event(alarm, {clear_alarm, 10, cabinet_close}).
+event_manager:get_data(alarm, stats_handler).
+event_manager:stop(alarm).
+
