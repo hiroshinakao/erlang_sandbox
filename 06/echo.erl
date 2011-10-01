@@ -3,11 +3,10 @@
 
 start() -> register(?MODULE, spawn(echo, loop, [])), ok.
 
-print(Term) -> ?MODULE ! {print, Term}, ok.
-stop()      -> ?MODULE ! stop         , ok.
+print(Term) -> echo ! {print, Term}, ok.
+stop()      -> exit(normal).
 
 loop() ->
   receive
-    {print, Msg} -> io:format("Msg: ~w~n",[Msg]), loop();
-    stop         -> ok
+    {print, Term} -> io:format("Term: ~w~n",[Term]), loop()
   end.
