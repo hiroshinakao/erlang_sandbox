@@ -1,0 +1,33 @@
+c(db).
+f(Db1).
+f(Db2).
+f(Db3).
+f(Db4).
+f(Db5).
+f(Db6).
+Db1 = db:new().
+Db2 = db:write(a, 1, Db1).
+Db3 = db:write(b, 2, Db2).
+Db4 = db:write(c, 3, Db3).
+Db5 = db:delete(b, Db4).
+db:delete(b, Db5).
+db:read(a, Db5).
+db:read(d, Db5).
+Db6 = db:write(d, 1, Db5).
+db:match(1, Db6).
+db:match(10, Db6).
+
+c(my_db).
+my_db:start().
+my_db:write(a,1).
+my_db:write(b,2).
+my_db:write(c,3).
+my_db:delete(b).
+my_db:read(a).
+my_db:read(d).
+my_db:write(d, 1).
+my_db:match(1).
+my_db:match(10).
+my_db:stop().
+
+
