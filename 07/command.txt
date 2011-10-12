@@ -41,8 +41,20 @@ C2=figure:circle(-1).
 
 f(R1).
 f(R2).
+f(R3).
 R1=figure:rectangle(3, 4).
 figure:perimeter(R1).
 figure:area(R1).
 R2=figure:circle(-1, 4).
 R3=figure:circle(1, -4).
+
+f(T1).
+f(T2).
+f(T4).
+f(T5).
+T1=figure:triangle(3, 4, 5).
+figure:perimeter(T1).
+figure:area(T1).
+T2=figure:circle(-3, 4, 5).
+T3=figure:circle(3, -4, 5).
+T4=figure:circle(3, 4, -5).
