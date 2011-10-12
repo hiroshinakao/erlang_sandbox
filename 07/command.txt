@@ -35,3 +35,4 @@ c(figure).
 C1=figure:circle(3).
 figure:circumference(C1).
 figure:area(C1).
+C2=figure:circle(-1).
