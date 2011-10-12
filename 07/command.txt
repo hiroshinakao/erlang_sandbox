@@ -32,7 +32,17 @@ my_db:stop().
 
 
 c(figure).
+f(C1).
+f(C2).
 C1=figure:circle(3).
 figure:circumference(C1).
 figure:area(C1).
 C2=figure:circle(-1).
+
+f(R1).
+f(R2).
+R1=figure:rectangle(3, 4).
+figure:perimeter(R1).
+figure:area(R1).
+R2=figure:circle(-1, 4).
+R3=figure:circle(1, -4).
