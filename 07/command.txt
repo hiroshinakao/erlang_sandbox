@@ -31,3 +31,7 @@ my_db:match(10).
 my_db:stop().
 
 
+c(figure).
+C1=figure:circle(3).
+figure:circumference(C1).
+figure:area(C1).
