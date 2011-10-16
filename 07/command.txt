@@ -58,3 +58,8 @@ figure:area(T1).
 T2=figure:circle(-3, 4, 5).
 T3=figure:circle(3, -4, 5).
 T4=figure:circle(3, 4, -5).
+
+c(binary_record).
+f(BR1).
+BR1=binary_record:new().
+binary_record:sum(BR1).
