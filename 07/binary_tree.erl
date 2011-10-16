@@ -52,4 +52,4 @@ is_ordered(#binary_tree{value=Value, left=Left, right=Right}) ->
   end.
 
 value([]) -> 0;
-value(#binary_tree{value=Value, left=_Left, right=_Right}) -> Value.
+value(#binary_tree{value=Value}) -> Value.
