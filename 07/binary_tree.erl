@@ -1,5 +1,5 @@
 -module(binary_tree).
--export([sum/1]).
+-export([sum/1, max/1]).
 -export([new/0]).
 
 -record(binary_tree, {value=0, left=[], right=[]}).
@@ -28,3 +28,7 @@ new() -> #binary_tree{
 % sum
 sum([]) -> 0;
 sum(#binary_tree{value=Value, left=Left, right=Right}) -> Value + sum(Left) + sum(Right).
+
+% max
+max([]) -> 0;
+max(#binary_tree{value=Value, left=Left, right=Right}) -> lists:max([Value, max(Left), max(Right)]).

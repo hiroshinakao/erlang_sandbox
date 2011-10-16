@@ -59,7 +59,8 @@ T2=figure:circle(-3, 4, 5).
 T3=figure:circle(3, -4, 5).
 T4=figure:circle(3, 4, -5).
 
-c(binary_record).
+c(binary_tree).
 f(BR1).
-BR1=binary_record:new().
-binary_record:sum(BR1).
+BR1=binary_tree:new().
+binary_tree:sum(BR1).
+binary_tree:max(BR1).
