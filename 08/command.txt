@@ -4,3 +4,10 @@ Db1=db:write(francesco, san_francisco, Db).
 Db2=db:write(alison, london, Db1).
 db:read(francesco, Db2).
 dict:fetch(francesco, Db2).
+
+db:module_info().
+
+c(db).
+db:read(francesco, Db2).
+db:read(martin, Db2).
+db:module_info(attributes).
