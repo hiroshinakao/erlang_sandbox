@@ -11,3 +11,26 @@ c(db).
 db:read(francesco, Db2).
 db:read(martin, Db2).
 db:module_info(attributes).
+
+
+
+cd("./").
+make:all([load]).
+db:module_info().
+db_server:start().
+db_server:write(francesco, san_francisco).
+db_server:write(alison, london).
+db_server:read(alison).
+db_server:read(martin).
+
+cd("./vsn1.2/").
+make:all([load]).
+code:add_patha("/Users/nakaohiroshi/Dropbox/_work/Erlang/sandbox/08/vsn1.2").
+code:load_file(db).
+code:soft_purge(db).
+db_server:upgrade(dict).
+db:module_info().
+
+db_server:write(martin, cairo).
+db_server:read(francesco).
+db_server:read(martin).
