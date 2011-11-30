@@ -1,0 +1,8 @@
+c(higher_order).
+
+higher_order:print(5).
+
+List = lists:seq(1, 5).
+higher_order:le(List, 3).
+List2 = lists:seq(-10, 5).
+higher_order:le(List2, -1).
